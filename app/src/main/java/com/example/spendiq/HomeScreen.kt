@@ -1,9 +1,11 @@
 package com.example.spendiq
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
@@ -24,105 +26,114 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun HomeScreen(
-
+    onAddClick: () -> Unit,
+    onAnalyseClick: () -> Unit,
     modifier: Modifier = Modifier
 ){
-    LazyColumn (
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(dimensionResource(R.dimen.padding_medium)),
-        userScrollEnabled = true
-    ){
-        item {
-            Card (      //daily budget
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(dimensionResource(R.dimen.padding_small)),
-                elevation = CardDefaults.cardElevation(2.dp)
-            ){
-                Row(
-                    verticalAlignment = Alignment.CenterVertically
-                ){
-                    Text(
-                        text = stringResource(R.string.daily_budget),
-                        style = MaterialTheme.typography.bodyLarge
-                    )
-                    Text(
-                        text = stringResource(R.string.val_daily_budget),
-                        style = MaterialTheme.typography.titleSmall
-                    )
-                }
-            }
+    Box(
 
-            Card (  //daily expense
-                modifier = Modifier.fillMaxWidth()
-                    .padding(dimensionResource(R.dimen.padding_small)),
-                elevation = CardDefaults.cardElevation(2.dp)
-            ){
-                Row (){
-                    Text(
-                        text = stringResource(R.string.dailyExpense)
-                    )
-                    Text(
-                        text = stringResource(R.string.valDailyExpense)
-                    )
-                }
-            }
-
-            Card (  //monthly expense
-                modifier = Modifier.fillMaxWidth()
-                    .padding(dimensionResource(R.dimen.padding_small)),
-                elevation = CardDefaults.cardElevation(2.dp)
-            ){
-                Row (){
-                    Text(
-                        text = stringResource(R.string.monthlyExpense)
-                    )
-                    Text(
-                        text = stringResource(R.string.valMonthlyExpense)
-                    )
-                }
-            }
-
-            Column (
-                modifier = Modifier
-                    .fillMaxWidth()
-            ){
-                Text(
-                    text = stringResource(R.string.aiInsight)
-                )
-                Text(
-                    text = stringResource(R.string.food)
-                )
-                Text(
-                    text = stringResource(R.string.travel)
-                )
-            }
-
-
-
-        }
-    }
-
-    Row(
-        modifier = Modifier.fillMaxWidth()
-    ){
-        Button(
-            onClick = {  }
+    ) {
+        LazyColumn(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(top = dimensionResource(R.dimen.padding_medium),),
+            userScrollEnabled = true,
         ) {
-            Row(){
-                Image(painter = painterResource(R.drawable.add), contentDescription = null)
-                Text(text = stringResource(R.string.addExpense))
+            item {
+                Card(      //daily budget
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(dimensionResource(R.dimen.padding_small)),
+                    elevation = CardDefaults.cardElevation(2.dp)
+                ) {
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Text(
+                            text = stringResource(R.string.daily_budget),
+                            style = MaterialTheme.typography.bodyLarge
+                        )
+                        Text(
+                            text = stringResource(R.string.val_daily_budget),
+                            style = MaterialTheme.typography.titleSmall
+                        )
+                    }
+                }
+
+                Card(  //daily expense
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(dimensionResource(R.dimen.padding_small)),
+                    elevation = CardDefaults.cardElevation(2.dp)
+                ) {
+                    Row() {
+                        Text(
+                            text = stringResource(R.string.dailyExpense)
+                        )
+                        Text(
+                            text = stringResource(R.string.valDailyExpense)
+                        )
+                    }
+                }
+
+                Card(  //monthly expense
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(dimensionResource(R.dimen.padding_small)),
+                    elevation = CardDefaults.cardElevation(2.dp)
+                ) {
+                    Row() {
+                        Text(
+                            text = stringResource(R.string.monthlyExpense)
+                        )
+                        Text(
+                            text = stringResource(R.string.valMonthlyExpense)
+                        )
+                    }
+                }
+
+                Column(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                ) {
+                    Text(
+                        text = stringResource(R.string.aiInsight)
+                    )
+                    Text(
+                        text = stringResource(R.string.food)
+                    )
+                    Text(
+                        text = stringResource(R.string.travel)
+                    )
+                }
+
+
             }
         }
-
-        Spacer(modifier = Modifier.width(8.dp))
-        Button(
-            onClick = { }
+        //buttons
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .align(Alignment.BottomCenter)
         ) {
-            Row(){
-                Image(painter = painterResource(R.drawable.analysis), contentDescription = null)
-                Text(text = stringResource(R.string.analyse))
+            Button(
+                onClick = onAddClick
+            ) {
+                Row() {
+                    Image(painter = painterResource(R.drawable.add), contentDescription = null)
+                    Text(text = stringResource(R.string.addExpense))
+                }
+            }
+
+            Spacer(modifier = Modifier.width(8.dp))
+
+            Button(
+                onClick = onAnalyseClick
+            ) {
+                Row() {
+                    Image(painter = painterResource(R.drawable.analysis), contentDescription = null)
+                    Text(text = stringResource(R.string.analyse))
+                }
             }
         }
     }
@@ -131,5 +142,8 @@ fun HomeScreen(
 @Preview(showBackground = true)
 @Composable
 fun HomeScreenPreview(){
-    HomeScreen()
+    HomeScreen(
+        onAddClick = {},
+        onAnalyseClick = {}
+    )
 }

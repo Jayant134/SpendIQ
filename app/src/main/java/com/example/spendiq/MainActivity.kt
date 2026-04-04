@@ -16,7 +16,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             SpendIQTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-
+                    AppNav()
                 }
             }
         }
