@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">SpendIQ</string>
+    <string name="daily_budget">Your daily budget: </string>
+    <string name="val_daily_budget">100 Rs</string>
+    <string name="dailyExpense">Total expense today: </string>
+    <string name="valDailyExpense">200 Rs</string>
+    <string name="monthlyExpense">Total expense this month: </string>
+    <string name="valMonthlyExpense">800</string>
+    <string name="aiInsight">AI insight: </string>
+    <string name="food">High food spending.</string>
+    <string name="travel">High savings on travel.</string>
+    <string name="addExpense">Add Expense</string>
+    <string name="analyse">Analyse</string>
 </resources>
