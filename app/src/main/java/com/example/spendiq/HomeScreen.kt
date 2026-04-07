@@ -73,6 +73,7 @@ fun HomeScreen(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(16.dp),
+//                    .background(Color.White),
                 horizontalArrangement = Arrangement.SpaceEvenly
             ){
                 Button(
@@ -232,6 +233,8 @@ fun HomeScreenUi(
 
             //item-2: Image Cards
             item{
+                Spacer(modifier = Modifier.height(16.dp))
+
                 Text(
                     text = "Analysis",
                     style = MaterialTheme.typography.titleSmall,
