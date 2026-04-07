@@ -7,8 +7,12 @@
     <string name="monthlyExpense">Total expense this month</string>
     <string name="valMonthlyExpense">800</string>
     <string name="aiInsight">AI insight: </string>
-    <string name="food">High food spending.</string>
-    <string name="travel">High savings on travel.</string>
+    <string name="food">•High food spending.</string>
+    <string name="travel">•High savings on travel.</string>
     <string name="addExpense">Add Expense</string>
     <string name="analyse">Analyse</string>
+    <string name="addAmount">Add amount:</string>
+<!--    <string name="amount">Amount</string>-->
+    <string name="selectCategory">Select category</string>
+    <string name="note">Write anything here</string>
 </resources>

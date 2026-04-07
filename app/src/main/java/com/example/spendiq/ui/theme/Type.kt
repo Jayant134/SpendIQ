@@ -22,8 +22,8 @@ val Typography = Typography(
     ),
     titleSmall = TextStyle(
         fontFamily = Lexend,
-        fontWeight = FontWeight.Normal,
-        fontSize = 20.sp
+        fontWeight = FontWeight.Bold,
+        fontSize = 16.sp
     ),
 //    bodyLarge = TextStyle(
 //        fontFamily = Lexend,
@@ -33,12 +33,12 @@ val Typography = Typography(
     bodyMedium = TextStyle(
         fontFamily = Lexend,
         fontWeight = FontWeight.Light,
-        fontSize = 12.sp
+        fontSize = 16.sp
     )
 )
 
 val DisplayXLargeBold = TextStyle(
     fontFamily = Lexend,
     fontWeight = FontWeight.Bold,
-    fontSize = 32.sp
+    fontSize = 28.sp
 )
