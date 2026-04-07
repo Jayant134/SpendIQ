@@ -46,6 +46,7 @@ fun HomeScreen(
     onAddClick: () -> Unit,
     onAnalyseClick: () -> Unit,
     totalAmount: Int,
+    lastCategory: String,
     modifier: Modifier = Modifier
 ){
     Scaffold(
@@ -63,6 +64,7 @@ fun HomeScreen(
             val extraTopPadding = dimensionResource(R.dimen.padding_large)
             HomeScreenUi(
                 totalAmount = totalAmount,
+                lastCategory = lastCategory,
                 paddingValues = PaddingValues(top = paddingValues.calculateTopPadding()+extraTopPadding)
             )
         },
@@ -101,6 +103,7 @@ fun HomeScreen(
 fun HomeScreenUi(
     modifier: Modifier = Modifier,
     totalAmount: Int,
+    lastCategory: String,
     paddingValues: PaddingValues
 ){
     Box(
@@ -218,10 +221,10 @@ fun HomeScreenUi(
                             text = stringResource(R.string.aiInsight)
                         )
                         Text(
-                            text = stringResource(R.string.food)
-                        )
-                        Text(
-                            text = stringResource(R.string.travel)
+                            text = if (lastCategory.isNotEmpty())
+                                "High spending in $lastCategory"
+                            else
+                                "No data yet"
                         )
                     }
                 }
@@ -279,6 +282,7 @@ fun HomeScreenPreview(){
     HomeScreen(
         onAddClick = {},
         onAnalyseClick = {},
-        0
+        0,
+        lastCategory = ""
     )
 }

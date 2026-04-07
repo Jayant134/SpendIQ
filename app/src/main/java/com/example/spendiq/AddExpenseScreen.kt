@@ -35,7 +35,8 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun AddExpenseScreen(
         onBack: () -> Unit,
-        onAddAmount: (Int) -> Unit
+        onAddAmount: (Int) -> Unit,
+        onCategorySelected: (String) -> Unit
     ) {
     var amount by remember { mutableStateOf("") }
     Box(
@@ -87,6 +88,7 @@ fun AddExpenseScreen(
                             onClick = {
                                 selected = item
                                 expanded = false
+                                onCategorySelected(item)   // 🔥 send category up
                             }
                         )
                     }
