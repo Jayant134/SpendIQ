@@ -42,3 +42,9 @@ val DisplayXLargeBold = TextStyle(
     fontWeight = FontWeight.Bold,
     fontSize = 28.sp
 )
+
+val StatusBarFont = TextStyle(
+    fontFamily = Lexend,
+    fontWeight = FontWeight.Light,
+    fontSize = 26.sp
+)

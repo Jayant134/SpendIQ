@@ -24,7 +24,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
-import androidx.compose.material3.surfaceColorAtElevation
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -32,6 +31,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
@@ -39,6 +39,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.spendiq.ui.theme.DisplayXLargeBold
+import com.example.spendiq.ui.theme.StatusBarFont
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -50,14 +51,20 @@ fun HomeScreen(
     modifier: Modifier = Modifier
 ){
     Scaffold(
+//        modifier = Modifier
+//            .clip(shape = RoundedCornerShape(Start = 24.dp, topEnd = 24.dp))
+//            .background(Color(0xFFF0F5F8)),
+        containerColor = Color(0xFFF0F5F8),
         topBar = {
             CenterAlignedTopAppBar(
                 title = {
-                    Text(text = stringResource(R.string.app_name))
+                    Text(text = stringResource(R.string.app_name), style = StatusBarFont)
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.surfaceColorAtElevation(3.dp)
-                )
+                    containerColor = Color(0xFFF0F5F8)
+                ),
+
+
             )
         },
         content = {paddingValues ->
@@ -81,7 +88,7 @@ fun HomeScreen(
                 ) {
                     Row() {
                         Image(painter = painterResource(R.drawable.add), contentDescription = null, modifier = Modifier.size(20.dp))
-                        Text(text = stringResource(R.string.addExpense))
+                        Text(text = stringResource(R.string.addExpense), style = MaterialTheme.typography.bodyMedium)
                     }
                 }
 
@@ -92,7 +99,7 @@ fun HomeScreen(
                 ) {
                     Row() {
                         Image(painter = painterResource(R.drawable.analysis), contentDescription = null, modifier = Modifier.size(20.dp))
-                        Text(text = stringResource(R.string.analyse))
+                        Text(text = stringResource(R.string.analyse), style = MaterialTheme.typography.bodyMedium)
                     }
                 }
             }
@@ -123,7 +130,6 @@ fun HomeScreenUi(
                     modifier = Modifier
                         .height(dimensionResource(R.dimen.otherCardHeight))
                         .fillMaxWidth(),
-                    //                       .padding(start = dimensionResource(R.dimen.padding_large), end = dimensionResource(R.dimen.padding_large)),
                     elevation = CardDefaults.cardElevation(3.dp)
                 ) {
                     Column(
@@ -219,13 +225,15 @@ fun HomeScreenUi(
                         verticalArrangement = Arrangement.Center
                     ) {
                         Text(
-                            text = stringResource(R.string.aiInsight)
+                            text = stringResource(R.string.aiInsight),
+                            style = MaterialTheme.typography.bodyMedium
                         )
                         Text(
                             text = if (lastCategory.isNotEmpty())
                                 "High spending in $lastCategory"
                             else
-                                "No data yet"
+                                "No data yet",
+                            style = MaterialTheme.typography.bodyMedium
                         )
                     }
                 }

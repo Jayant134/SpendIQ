@@ -1,6 +1,7 @@
 package com.example.spendiq
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -25,6 +26,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -42,6 +44,7 @@ fun AddExpenseScreen(
     Box(
         modifier = Modifier
             .fillMaxSize()
+            .background(Color(0xFFF0F5F8))
             .padding(dimensionResource(R.dimen.padding_large))
     ){
         Column(){
@@ -126,7 +129,7 @@ fun AddExpenseScreen(
                 ) {
                     Row() {
                         Image(painter = painterResource(R.drawable.add), contentDescription = null, modifier = Modifier.size(20.dp))
-                        Text(text = "Add")
+                        Text(text = "Add", style = MaterialTheme.typography.bodyMedium)
                     }
                 }
 
@@ -135,7 +138,7 @@ fun AddExpenseScreen(
                 Button(
                     onClick = onBack,
                 ) {
-                    Text("Back")
+                    Text("Back", style = MaterialTheme.typography.bodyMedium)
                 }
             }
         }
